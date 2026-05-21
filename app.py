@@ -1,3 +1,9 @@
+# Copyright (c) 2026 Rohit Nongmaithem
+# Licensed under the MIT License.
+# See LICENSE file in the project root for full license information.
+
+
+
 import streamlit as st
 import py3Dmol
 from stmol import showmol
