@@ -19,7 +19,7 @@ If you prefer to run the parser locally on your own machine, follow these steps:
 
 1. **Clone the repository:**
    
-   git clone [https://github.com/YOUR-USERNAME/logparser.git](https://github.com/YOUR-USERNAME/logparser.git)
+   git clone git@github.com:jjrt57/logparser.git
    cd logparser
 
 2. ** Install dependencies:**
