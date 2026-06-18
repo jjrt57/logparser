@@ -8,7 +8,6 @@ import streamlit as st
 import py3Dmol
 from stmol import showmol
 
-# --- Constants & Dictionaries ---
 ATOMIC_SYMBOLS = {
     1: 'H', 2: 'He', 3: 'Li', 4: 'Be', 5: 'B', 6: 'C', 7: 'N', 8: 'O', 9: 'F', 10: 'Ne',
     11: 'Na', 12: 'Mg', 13: 'Al', 14: 'Si', 15: 'P', 16: 'S', 17: 'Cl', 18: 'Ar',
@@ -61,8 +60,6 @@ LEGEND_SIZES = {
     'Os': 19, 'Ir': 19, 'Pt': 20, 'Au': 21, 'Hg': 21,
     'Tl': 22, 'Pb': 22, 'Bi': 22
 }
-
-# --- Core Functions ---
 def parse_gaussian_log(file_content):
     lines = file_content.splitlines()
     
@@ -168,7 +165,7 @@ if uploaded_file is not None:
     
     st.divider()
     
-    #Metric Layout
+   
     st.subheader("Overview")
     col1, col2, col3 = st.columns(3)
     col1.metric("Final Energy (Hartree)", results['energy'])
@@ -177,11 +174,10 @@ if uploaded_file is not None:
     
     st.divider()
     
-    # 3D Visualization
+    #Visualization
     if results["coordinates"]:
         st.subheader("Structure")
         
-        # 1. Determine which unique atoms are in this specific molecule
         unique_atoms = set()
         for line in results["coordinates"]:
             parts = line.split()
@@ -190,28 +186,27 @@ if uploaded_file is not None:
                 symbol = ATOMIC_SYMBOLS.get(atomic_num, "X")
                 unique_atoms.add(symbol)
                 
-        # 2. Buil HTML 
+   
         legend_html = "<div style='display: flex; gap: 20px; margin-bottom: 15px; padding: 10px; background-color: rgba(128,128,128,0.1); border-radius: 5px; flex-wrap: wrap;'>"
         legend_html += "<span style='font-weight: 600; font-size: 14px; margin-right: 10px; display: flex; align-items: center;'>Atoms:</span>"
         
         for atom in sorted(unique_atoms):
             color = JMOL_COLORS.get(atom, "#FF1493")
             size = LEGEND_SIZES.get(atom, 16)
-            
-            # Formatted on a single line to prevent Streamlit from treating it as a Markdown code block
+        
             legend_html += f"<div style='display: flex; align-items: center; font-size: 14px;'><div style='width: {size}px; height: {size}px; background-color: {color}; border-radius: 50%; border: 1px solid #999; margin-right: 8px;'></div>{atom}</div>"
             
         legend_html += "</div>"
         
-        # Render the legend above the viewer
+       
         st.markdown(legend_html, unsafe_allow_html=True)
         
-        # 3. Render the 3D Viewer
+       
         xyz_data = convert_to_xyz(results["coordinates"])
         view = py3Dmol.view(width=800, height=400)
         view.addModel(xyz_data, "xyz")
         
-        # Apply the Jmol color scheme to the 3D rendering
+      
         view.setStyle({"stick": {"radius": 0.15, "colorscheme": "Jmol"}, 
                        "sphere": {"scale": 0.25, "colorscheme": "Jmol"}})
         view.zoomTo()
@@ -220,7 +215,7 @@ if uploaded_file is not None:
     
     st.divider()
     
-    # File Download
+ 
     report_text = generate_text_report(results)
     st.download_button(
         label="Download Parsed Data",
