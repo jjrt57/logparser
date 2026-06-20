@@ -11,7 +11,7 @@ A minimalist Streamlit web application designed for the computational chemistry 
 
 ## Live Demo
 You can access the hosted version of this tool here: 
-**[Insert your Streamlit Cloud URL here]**
+** https://goparse.streamlit.app **
 
 ## Local Installation
 
@@ -31,7 +31,7 @@ If you prefer to run the parser locally on your own machine, follow these steps:
 
       streamlit run app.py
 
-The application will automatically open in your default web browser at `http://localhost:8501`.
+The application will automatically open in your default web browser at `(https://goparse.streamlit.app)`.
 
 ## Usage
 
