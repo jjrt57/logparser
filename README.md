@@ -1,5 +1,4 @@
 # Gaussian Log Parser
- MY NAME IS CERCIO
 
 A minimalist Streamlit web application designed for the computational chemistry community. This tool parses standard Gaussian `.log` and `.out` files to extract key thermodynamic and structural data, providing both a rapid dashboard overview and an interactive 3D visualization of the optimized geometry.
 
