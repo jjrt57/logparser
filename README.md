@@ -8,10 +8,12 @@ A minimalist Streamlit web application designed for the computational chemistry 
 * **Structural Parsing**: Extracts final coordinates (Input/Standard orientation) and optimized parameters (bond lengths and angles).
 * **3D Visualization**: Interactive molecular viewer powered by `py3Dmol` with standard Jmol color schemes and a dynamic legend.
 * **Report Generation**: One-click download of a clean, plain-text summary report containing all extracted data.
+  
 
 ## Live Demo
 You can access the hosted version of this tool here: 
 ** https://goparse.streamlit.app **
+
 
 ## Local Installation
 
@@ -38,3 +40,4 @@ The application will automatically open in your default web browser at `(https:/
 1. Drag and drop your Gaussian `.log` or `.out` file into the upload area.
 2. The dashboard will instantly populate with the extracted metrics and render the 3D structure.
 3. Click **Download Parsed Data** to save the textual summary to your local machine.
+
